@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /public/
+
+  # لا تعيد التوجيه إذا كان الملف أو المجلد موجودًا
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # إعادة توجيه كل شيء إلى index.php
+  RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+</IfModule>
